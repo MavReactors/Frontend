@@ -13,14 +13,11 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import {Link} from "react-router-dom";
 
 const formSchema = z.object({
-    email: z.string().min(2, {
-        message: "Username must be at least 2 characters"
-    }),
-    password: z.string().min(5, {
-        message: "Password must have at least 5 characters"
-    })
+    email: z.string().email(),
+    password: z.string()
 })
 
 export function LogInPage() {
@@ -77,6 +74,9 @@ export function LogInPage() {
                             )}
                         />
                         <Button type="submit">Submit</Button>
+                        <div>
+                            <p>Or <Link to={'/signup'} className={'text-blue-500'}>signup</Link> now </p>
+                        </div>
                     </form>
                 </Form>
             </div>
