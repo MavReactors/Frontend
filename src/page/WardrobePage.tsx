@@ -25,16 +25,15 @@ import clotheItem from '@/data/clotheItem.json'
 
 export default function WardrobePage() {
     const clotheTypes = [
+        'CAP',
+        'EARRINGS',
+        'NECKLACE',
         'SHIRT',
+        'BRACELET',
+        'BELT',
         'PANTS',
-        'DRESS',
-        'SKIRT',
-        'JACKET',
-        'COAT',
-        'SNEAKERS',
-        'BOOTS',
-        'SANDALS',
-        'HEELS']
+        'SHOES'
+    ]
 
     console.table(clotheItem[0])
 
