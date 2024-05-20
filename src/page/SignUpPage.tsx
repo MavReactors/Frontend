@@ -13,6 +13,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import {useNavigate} from "react-router-dom";
 
 const formSchema = z.object({
     username: z.string(),
@@ -29,6 +30,8 @@ export function SignUpPage() {
             password: "alejo123"
         }
     })
+    
+    const navigator = useNavigate()
 
 
     // 2. Define a submit handler.
@@ -36,6 +39,7 @@ export function SignUpPage() {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.table(values)
+        navigator('/wardrobe')
     }
 
     return (
