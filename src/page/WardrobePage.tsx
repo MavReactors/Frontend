@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/card"
 
 
-import clotheItem from '@/data/clotheItem.json'
+import clotheItems from '@/data/clotheItem.json'
 
 export default function WardrobePage() {
     const clotheTypes = [
@@ -35,7 +35,7 @@ export default function WardrobePage() {
         'SHOES'
     ]
 
-    console.table(clotheItem[0])
+    console.table(clotheItems[0])
 
     const [activeClotheType, setActiveClotheType] =
         React.useState<string | undefined>(undefined);
@@ -62,7 +62,7 @@ export default function WardrobePage() {
 
             <div className="grid grid-cols-[1fr_auto] gap-4 h-[80vh] p-6">
                 <div className="showcase grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                    {clotheItem
+                    {clotheItems
                         .filter(item => item.tipo === activeClotheType)
                         .map((item, index) => (
                         <Card key={index} className={'w-[250px] p-3'}>
