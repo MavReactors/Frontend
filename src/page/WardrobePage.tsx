@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/card"
 
 
+// TODO: Change this to make the clotheItems array come from a get request to backend
 import clotheItems from '@/data/clotheItem.json'
 
 export default function WardrobePage() {
