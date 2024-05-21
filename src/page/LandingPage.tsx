@@ -13,7 +13,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import {Card, CardContent} from "@/components/ui/card"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
 import {Button} from "@/components/ui/button.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 
@@ -98,14 +98,76 @@ function WhizCarousel() {
     )
 }
 
+function WhizWhy() {
+    return (
+        <div className={'grid grid-cols-2 gap-8 pl-10 pr-10'}>
+            <div className={'flex flex-col justify-center'}>
+                <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>¿Por qué?</h1>
+                <p>Crear una app de closet virtual responde a la necesidad de simplificar la gestión de prendas de
+                    vestir en el mundo moderno. Con la creciente cantidad de ropa que poseemos, una plataforma digital
+                    proporciona una solución eficiente para organizar, catalogar y planificar conjuntos, optimizando así
+                    el tiempo y espacio físico, y permitiendo una experiencia de vestimenta más personalizada y
+                    sostenible.</p>
+            </div>
+            <div className="flex justify-center items-center">
+                <img src={'/wardrobe1.jpg'} alt={'Hello'} className={'max-w-xl rounded'}/>
+            </div>
+        </div>
+    )
+}
+
+function WhizFeatures() {
+    const features = [
+        {
+            title: 'Closet',
+            description: 'En tu closet virtual puedes guardar toda tu ropa. Y accede a ella cuándo quieras!'
+        },
+        {
+            title: 'Outfits',
+            description: 'Arma tus outfits como quieras y organiza tus eventos especiales desde tu celular!!'
+        },
+        {
+            title: 'Tendencias',
+            description: 'Encuentra ideas de outfits votadas por la comunidad y publica tus propios outfits!'
+        }
+    ]
+    return (
+        <div className={'flex flex-col items-center'}>
+            <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>Features</h1>
+            <div className={'grid grid-cols-3 gap-8 pl-10 pr-10'}>
+                {features.map((feature, index) => (
+                    <Card key={index} className={'w-[250px] p-3 min-h-10'}>
+                        <CardHeader>
+                            <CardTitle>{`${feature.title}`}</CardTitle>
+                            <CardDescription>Feature</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <p>{feature.description}</p>
+                        </CardContent>
+                        <CardFooter>
+                            Descubrelo!
+                        </CardFooter>
+                    </Card>
+                ))
+
+                }
+            </div>
+        </div>
+    )
+}
+
 export function LandingPage() {
     return (
-        <>
+        <div className={'pl-5 pr-5'}>
             <WhizNavBar></WhizNavBar>
             <WhizHeader></WhizHeader>
             <Separator className={'m-10'}/>
             <WhizCarousel></WhizCarousel>
             <Separator className={'m-10'}/>
-        </>
+            <WhizWhy/>
+            <Separator className={'m-10'}/>
+            <WhizFeatures/>
+
+        </div>
     )
 }
