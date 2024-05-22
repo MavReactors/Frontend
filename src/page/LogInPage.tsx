@@ -57,11 +57,8 @@ export function LogInPage() {
                                 <FormItem>
                                     <FormLabel>Usuario</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcn" {...field} className="input-box" />
+                                        <Input placeholder="Nombre de usuario" {...field} className="input-box" />
                                     </FormControl>
-                                    <FormDescription className="form-description">
-                                        Nombre de usuario público.
-                                    </FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -76,18 +73,15 @@ export function LogInPage() {
                                         <div className="input-wrapper">
                                             <Input
                                                 type={showPassword ? "text" : "password"}
-                                                placeholder="shadcnpw"
+                                                placeholder="ʕ•́ᴥ•̀ʔっ"
                                                 {...field}
                                                 className="input-box"
                                             />
                                             <button type="button" onClick={toggleShowPassword} className="show-password-button">
-                                                {showPassword ? "Hide" : "Show"}
+                                                {showPassword ? "Ocultar" : "Mostrar"}
                                             </button>
                                         </div>
                                     </FormControl>
-                                    <FormDescription className="form-description">
-                                        No compartas tu contraseña con otras personas.
-                                    </FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}

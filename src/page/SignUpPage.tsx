@@ -59,7 +59,7 @@ export function SignUpPage() {
                                 <FormItem>
                                     <FormLabel>Usuario</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter your username" {...field} className="input-box" />
+                                        <Input placeholder="Ingresa tu nombre de usuario" {...field} className="input-box" />
                                     </FormControl>
                                     <FormDescription className="form-description-SignUp">
                                         Con este nombre te veran los demás usuarios.
@@ -75,7 +75,7 @@ export function SignUpPage() {
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter your email" {...field} className="input-box" />
+                                        <Input placeholder="Ingresa tu correo" {...field} className="input-box" />
                                     </FormControl>
                                     <FormDescription className="form-description-SignUp">
                                         Agrega un correo que tengas activo.
@@ -94,7 +94,7 @@ export function SignUpPage() {
                                         <div className="input-wrapper">
                                             <Input
                                                 type={showPassword ? "text" : "password"}
-                                                placeholder="Enter your password"
+                                                placeholder="Ingresa tu contraseña"
                                                 {...field}
                                                 className="input-box"
                                             />
