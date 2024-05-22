@@ -17,6 +17,10 @@ import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} f
 import {Button} from "@/components/ui/button.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 
+import womanBlueCoat from '../assets/woman-blue-coat.jpg'
+import womanLeatherJacket from '../assets/woman-leather-jacket.jpg'
+import womanStreetwearCool from '../assets/woman-streetwear-cool.jpg'
+
 function WhizNavBar() {
     return (
         <>
@@ -61,10 +65,16 @@ function WhizHeader() {
 }
 
 function WhizCarousel() {
+    // const carouselImages = [
+    //     '/woman-blue-coat.jpg?base64',
+    //     '/woman-streetwear-cool.jpg?base64',
+    //     '/woman-leather-jacket.jpg?base64'
+    // ]
+
     const carouselImages = [
-        '/woman-blue-coat.jpg',
-        '/woman-streetwear-cool.jpg',
-        '/woman-leather-jacket.jpg'
+        womanBlueCoat,
+        womanLeatherJacket,
+        womanStreetwearCool
     ]
 
     return (
