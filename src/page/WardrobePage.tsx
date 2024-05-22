@@ -46,8 +46,6 @@ export default function WardrobePage() {
         'SHOES'
     ]
 
-    console.table(clotheItems[0])
-
     const [activeClotheType, setActiveClotheType] =
         React.useState<string | undefined>(undefined);
 

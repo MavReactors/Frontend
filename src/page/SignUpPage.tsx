@@ -28,9 +28,9 @@ export function SignUpPage() {
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: 'alejo',
-            email: "alejo@site.org",
-            password: "alejo123",
+            username: 'miguel1475',
+            email: "fzm5ey837@mozmail.com",
+            password: "miguel1475",
         },
     });
 

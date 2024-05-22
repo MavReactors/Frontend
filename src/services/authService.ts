@@ -30,7 +30,15 @@ export const signUp = async (userData: UserData) => {
     headers.append('Accept', 'application/json')
     headers.append('Content-Type', 'application/json')
 
-    const json = JSON.stringify(userData)
+    const json = JSON.stringify({
+        email: userData.email,
+        password: userData.password,
+        username: userData.username,
+        profilePhoto: "",
+        userRoles: [
+            "CUSTOMER"
+        ]
+    })
 
     try {
         const jsonResponse = await fetch(`${API_URL}/signup`, {
