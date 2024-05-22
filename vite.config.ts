@@ -12,6 +12,6 @@ export default defineConfig({
   },
   build: {
     outDir: path.resolve(__dirname, "./build"),
-    assetsInlineLimit: 5000000
+    assetsInlineLimit: 4096
   }
 })
