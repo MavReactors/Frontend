@@ -6,20 +6,20 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import {Link} from "react-router-dom";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
+// import {
+//     Carousel,
+//     CarouselContent,
+//     CarouselItem,
+//     CarouselNext,
+//     CarouselPrevious,
+// } from "@/components/ui/carousel"
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
 import {Button} from "@/components/ui/button.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 
-import womanBlueCoat from '../assets/woman-blue-coat.jpg'
-import womanLeatherJacket from '../assets/woman-leather-jacket.jpg'
-import womanStreetwearCool from '../assets/woman-streetwear-cool.jpg'
+// import womanBlueCoat from '../assets/woman-blue-coat.jpg'
+// import womanLeatherJacket from '../assets/woman-leather-jacket.jpg'
+// import womanStreetwearCool from '../assets/woman-streetwear-cool.jpg'
 
 function WhizNavBar() {
     return (
@@ -64,49 +64,49 @@ function WhizHeader() {
     )
 }
 
-function WhizCarousel() {
-    // const carouselImages = [
-    //     '/woman-blue-coat.jpg?base64',
-    //     '/woman-streetwear-cool.jpg?base64',
-    //     '/woman-leather-jacket.jpg?base64'
-    // ]
-
-    const carouselImages = [
-        womanBlueCoat,
-        womanLeatherJacket,
-        womanStreetwearCool
-    ]
-
-    return (
-        <>
-            <div className={'flex flex-col justify-between items-center'}>
-                <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>Todos tus Outfits</h1>
-                <Carousel
-                    opts={{
-                        align: "center",
-                    }}
-                    className="w-full max-w-[80vw] mx-auto"
-                >
-                    <CarouselContent>
-                        {carouselImages.map((img, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-0">
-                                    <Card>
-                                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                                            <img src={img} alt={'Outfit picture'} className={'rounded'}/>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious/>
-                    <CarouselNext/>
-                </Carousel>
-            </div>
-        </>
-    )
-}
+// function WhizCarousel() {
+//     // const carouselImages = [
+//     //     '/woman-blue-coat.jpg?base64',
+//     //     '/woman-streetwear-cool.jpg?base64',
+//     //     '/woman-leather-jacket.jpg?base64'
+//     // ]
+//
+//     const carouselImages = [
+//         womanBlueCoat,
+//         womanLeatherJacket,
+//         womanStreetwearCool
+//     ]
+//
+//     return (
+//         <>
+//             <div className={'flex flex-col justify-between items-center'}>
+//                 <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>Todos tus Outfits</h1>
+//                 <Carousel
+//                     opts={{
+//                         align: "center",
+//                     }}
+//                     className="w-full max-w-[80vw] mx-auto"
+//                 >
+//                     <CarouselContent>
+//                         {carouselImages.map((img, index) => (
+//                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+//                                 <div className="p-0">
+//                                     <Card>
+//                                         <CardContent className="flex aspect-square items-center justify-center p-6">
+//                                             <img src={img} alt={'Outfit picture'} className={'rounded'}/>
+//                                         </CardContent>
+//                                     </Card>
+//                                 </div>
+//                             </CarouselItem>
+//                         ))}
+//                     </CarouselContent>
+//                     <CarouselPrevious/>
+//                     <CarouselNext/>
+//                 </Carousel>
+//             </div>
+//         </>
+//     )
+// }
 
 function WhizWhy() {
     return (
@@ -172,7 +172,7 @@ export function LandingPage() {
             <WhizNavBar></WhizNavBar>
             <WhizHeader></WhizHeader>
             <Separator className={'m-10'}/>
-            <WhizCarousel></WhizCarousel>
+            {/*<WhizCarousel></WhizCarousel>*/}
             <Separator className={'m-10'}/>
             <WhizWhy/>
             <Separator className={'m-10'}/>
