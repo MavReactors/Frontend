@@ -171,6 +171,18 @@ function WhizFeatures() {
     )
 }
 
+function WhizFooter() {
+    return (
+        <div className={'flex flex-col justify-center items-center'}>
+            <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>Conócenos</h1>
+            <div className={'flex items-center justify-around'}>
+                <a className={'m-10'} href={'https://www.instagram.com'}>Instagram</a>
+                <a className={'m-10'} href={'https://www.x.com'}>Twitter</a>
+            </div>
+        </div>
+    )
+}
+
 export function LandingPage() {
     return (
         <div className={'pl-5 pr-5'}>
@@ -182,7 +194,9 @@ export function LandingPage() {
             <WhizWhy/>
             <Separator className={'m-10'}/>
             <WhizFeatures/>
-            {/*<WhizCarousel></WhizCarousel>*/}
+            <Separator className={'m-10'}/>
+            <WhizFooter />
+            <Separator className={'m-10'}/>
         </div>
     )
 }
