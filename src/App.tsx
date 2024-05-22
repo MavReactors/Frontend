@@ -3,6 +3,7 @@ import {LogInPage} from "@/page/LogInPage.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SignUpPage} from "@/page/SignUpPage.tsx";
 import WardrobePage from "@/page/WardrobePage.tsx";
+import {LandingPage} from "@/page/LandingPage.tsx";
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
     <>
         <BrowserRouter>
             <Routes>
-                <Route path={'/'} element={<LogInPage />} ></Route>
+                <Route path={'/'} element={<LandingPage/>} ></Route>
+                <Route path={'/login'} element={<LogInPage />} ></Route>
                 <Route path={'/signup'} element={<SignUpPage />}> </Route>
                 <Route path={'/wardrobe'} element={<WardrobePage />}> </Route>
             </Routes>
