@@ -1,8 +1,8 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-import { Button } from "@/components/ui/button"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
@@ -11,75 +11,94 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import {Link} from "react-router-dom";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
+import '../styles/LogInPageStyles.css';
 
+// Definir el esquema del formulario usando Zod
 const formSchema = z.object({
     email: z.string().email(),
-    password: z.string()
-})
+    password: z.string(),
+});
+
+// Inferir el tipo a partir del esquema
+type FormSchemaType = z.infer<typeof formSchema>;
 
 export function LogInPage() {
-    const form = useForm<z.infer<typeof formSchema>>({
+    const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             email: "alejo@site.org",
-            password: "alejo123"
-        }
-    })
+            password: "alejo123",
+        },
+    });
 
+    const [showPassword, setShowPassword] = useState(false);
 
-    // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    function onSubmit(values: FormSchemaType) {
+        console.log(values);
+    }
+
+    function toggleShowPassword() {
+        setShowPassword(!showPassword);
     }
 
     return (
-            <div className="flex items-center justify-center min-h-screen">
+        <div className="login-container">
+            <div className="wrapper">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <h1>Iniciar sesión</h1>
                         <FormField
                             control={form.control}
                             name="email"
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Username</FormLabel>
+                                    <FormLabel>Usuario</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
+                                        <Input placeholder="shadcn" {...field} className="input-box" />
                                     </FormControl>
-                                    <FormDescription>
-                                        This is your public display name.
+                                    <FormDescription className="form-description">
+                                        Nombre de usuario público.
                                     </FormDescription>
-                                    <FormMessage/>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
                         <FormField
                             control={form.control}
                             name="password"
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Password</FormLabel>
+                                    <FormLabel>Contraseña</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcnpw" {...field} />
+                                        <div className="input-wrapper">
+                                            <Input
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="shadcnpw"
+                                                {...field}
+                                                className="input-box"
+                                            />
+                                            <button type="button" onClick={toggleShowPassword} className="show-password-button">
+                                                {showPassword ? "Hide" : "Show"}
+                                            </button>
+                                        </div>
                                     </FormControl>
-                                    <FormDescription>
-                                        This is your password
+                                    <FormDescription className="form-description">
+                                        No compartas tu contraseña con otras personas.
                                     </FormDescription>
-                                    <FormMessage/>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit">Submit</Button>
-                        <div>
-                            <p>Or <Link to={'/signup'} className={'text-blue-500'}>signup</Link> now </p>
+                        <Button type="submit" className="btn">Siguiente</Button>
+                        <div className="register-link">
+                            <p>¿No tienes una cuenta? <Link to={'/signup'}>Registrate</Link> acá </p>
                         </div>
                     </form>
                 </Form>
             </div>
-    )
-
+        </div>
+    );
 }
