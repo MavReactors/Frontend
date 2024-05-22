@@ -172,12 +172,11 @@ export function LandingPage() {
             <WhizNavBar></WhizNavBar>
             <WhizHeader></WhizHeader>
             <Separator className={'m-10'}/>
-            {/*<WhizCarousel></WhizCarousel>*/}
+            <WhizFeatures/>
             <Separator className={'m-10'}/>
             <WhizWhy/>
             <Separator className={'m-10'}/>
-            <WhizFeatures/>
-
+            {/*<WhizCarousel></WhizCarousel>*/}
         </div>
     )
 }
