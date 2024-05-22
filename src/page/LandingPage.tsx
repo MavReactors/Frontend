@@ -111,7 +111,7 @@ function WhizCarousel() {
 
 function WhizWhy() {
     return (
-        <div className={'grid grid-cols-2 gap-8 pl-10 pr-10'}>
+        <div className={'grid grid-cols-1 md:grid-cols-2 gap-8 pl-10 pr-10'}>
             <div className={'flex flex-col justify-center'}>
                 <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>¿Por qué?</h1>
                 <p>Crear una app de closet virtual responde a la necesidad de simplificar la gestión de prendas de
@@ -121,7 +121,7 @@ function WhizWhy() {
                     sostenible.</p>
             </div>
             <div className="flex justify-center items-center">
-                <img src={spreadSheetSVG} alt={'Hello'} className={'max-w-xl rounded'}/>
+                <img src={spreadSheetSVG} alt={'Hello'} className={'max-w-xs md:max-w-xl rounded'}/>
             </div>
         </div>
     )
@@ -148,7 +148,7 @@ function WhizFeatures() {
     return (
         <div className={'flex flex-col items-center'}>
             <h1 className={'text-3xl font-bold text-gray-900 mb-10'}>Features</h1>
-            <div className={'grid grid-cols-3 gap-8 pl-10 pr-10'}>
+            <div className={'grid grid-cols-1 md:grid-cols-3 gap-8 pl-10 pr-10'}>
                 {features.map((feature, index) => (
                     <Card key={index} className={'w-[250px] p-3 min-h-10'}>
                         <CardImage src={feature.image}/>
