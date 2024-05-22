@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(../Images/fondo_2.jpg) no-repeat;
+    background: radial-gradient(circle, #076aff, #775fff);
     background-size: cover;
     background-position: center;
 }
