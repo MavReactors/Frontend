@@ -14,5 +14,8 @@
         "content-type": "text/javascript"
       }
     }
-  ]
+  ],
+  "mimeTypes": {
+    ".json": "text/json"
+  }
 }
