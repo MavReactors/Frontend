@@ -89,10 +89,10 @@ export default function WardrobePage() {
     };
 
     // Función para enviar la imagen al servidor
-    //const handleImageUpload = () => {
+    const handleImageUpload = () => {
         // Aquí puedes implementar la lógica para enviar la imagen al servidor
-    //    console.log("Imagen seleccionada:", selectedImage);
-    //};
+        console.log("Imagen seleccionada:", selectedImage);
+    };
 
     return (
         <>
@@ -159,7 +159,7 @@ export default function WardrobePage() {
                             </div>
                         </div>
                         <DialogFooter>
-                        <Button type="submit">Guardar</Button>
+                        <Button onClick={handleImageUpload} type="submit">Guardar</Button>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
