@@ -72,7 +72,7 @@ export default function EditPor() {
         console.log("Contraseña cambiada:", data);
         setNewPassword(data.password); // Guardar la nueva contraseña
         setShowCard1(false);
-        updateUserPassword(data)
+        updateUserPassword(data.password)
     };
 
     return (
