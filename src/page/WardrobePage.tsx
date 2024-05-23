@@ -54,7 +54,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {useState} from "react";
 import  user from '../images/user.png'
 import React from "react"
-import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function WardrobePage() {
