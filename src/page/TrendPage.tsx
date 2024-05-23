@@ -1,26 +1,30 @@
 import React from "react";
 import { Heart, LogIn, CircleUserRound } from 'lucide-react';
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetClose } from "@/components/ui/sheet";
-import user from "@/images/user.png"; // Asegúrate de tener una imagen de usuario en esta ruta.
+import user from "@/images/user.png";
 import "../styles/TrendsPageStyles.css";
 
-import coatMan from '../assets/coat-man.jpg'
-import orangeGirl from '../assets/orange-girl.jpg'
-import winterGuy from '../assets/winter-guy.jpg'
+import coatMan from '../assets/coat-man.jpg';
+import orangeGirl from '../assets/orange-girl.jpg';
+import winterGuy from '../assets/winter-guy.jpg';
 
-function TrendTop(trends) {
-    let carouselImages = [
+// Tipos de props
+interface TrendsProps {
+    trends: { likes: number }[];
+}
+
+const TrendTop: React.FC<TrendsProps> = ({ }) => {
+    const carouselImages = [
         coatMan,
         orangeGirl,
         winterGuy,
         coatMan
-    ]
-    // carouselImages = []
+    ];
 
     return (
         <div className="flex flex-wrap">
@@ -39,10 +43,10 @@ function TrendTop(trends) {
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
-function TrendCarousel() {
+const TrendCarousel: React.FC = () => {
     const carouselImages = [
         coatMan,
         orangeGirl,
@@ -50,7 +54,7 @@ function TrendCarousel() {
         coatMan,
         orangeGirl,
         winterGuy
-    ]
+    ];
 
     return (
         <Carousel
@@ -79,12 +83,11 @@ function TrendCarousel() {
             </CarouselContent>
             <CarouselNext />
         </Carousel>
-    )
-}
+    );
+};
 
 export const TrendsPage: React.FC = () => {
     const trends = Array(4).fill({ likes: 1560 });
-    const outfits = Array(8).fill({});
 
     return (
         <div className="trends-container">
@@ -93,7 +96,7 @@ export const TrendsPage: React.FC = () => {
                     <Button className="button">
                         <LogIn size={40} className="rotate-icon" />
                     </Button>
-                </Link>     
+                </Link>
                 <h1>WardrobeWhiz</h1>
                 <nav>
                     <Link to="/"><i className="fas fa-arrow-left"></i></Link>
@@ -140,5 +143,5 @@ export const TrendsPage: React.FC = () => {
                 <TrendCarousel />
             </section>
         </div>
-    )
-}
+    );
+};
