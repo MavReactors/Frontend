@@ -23,6 +23,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Link } from "react-router-dom";
+import {updateUserPassword} from "@/services/userService.ts";
 
 // Esquema de validación para el formulario
 const usernameSchema = z.object({
@@ -71,6 +72,7 @@ export default function EditPor() {
         console.log("Contraseña cambiada:", data);
         setNewPassword(data.password); // Guardar la nueva contraseña
         setShowCard1(false);
+        updateUserPassword(data)
     };
 
     return (
