@@ -33,7 +33,7 @@ export const signUp = async (userData: UserData) => {
     const json = JSON.stringify(userData)
 
     try {
-        const jsonResponse = await fetch(`${API_URL}/signup`, {
+        const jsonResponse = await fetch(`${API_URL}/SignIn`, {
             method: 'POST',
             headers: headers,
             body: json,
