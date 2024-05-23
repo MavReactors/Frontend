@@ -14,7 +14,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import '../styles/SignUpPageStyles.css'; 
+import '../styles/SignUpPageStyles.css';
+import {signUp} from "@/services/authService.ts";
 
 const formSchema = z.object({
     username: z.string(),
@@ -38,8 +39,14 @@ export function SignUpPage() {
     const [showPassword, setShowPassword] = useState(false);
 
     function onSubmit(values: FormSchemaType) {
-        console.table(values);
-        navigate('/wardrobe');
+        signUp({
+            username: values.username,
+            password: values.password,
+            email: values.email
+        }).then(result => {
+            console.table(result);
+            navigate('/wardrobe');
+        })
     }
 
     function toggleShowPassword() {

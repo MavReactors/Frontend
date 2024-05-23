@@ -14,6 +14,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import '../styles/LogInPageStyles.css';
+import {logIn} from "@/services/authService.ts";
+
+import {useNavigate} from "react-router-dom";
 
 // Definir el esquema del formulario usando Zod
 const formSchema = z.object({
@@ -25,18 +28,22 @@ const formSchema = z.object({
 type FormSchemaType = z.infer<typeof formSchema>;
 
 export function LogInPage() {
+    const navigate = useNavigate()
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            email: "alejo@site.org",
-            password: "alejo123",
+            email: "alejomonry@hotmail.com",
+            password: "1003704633a",
         },
     });
 
     const [showPassword, setShowPassword] = useState(false);
 
     function onSubmit(values: FormSchemaType) {
-        console.log(values);
+        logIn(values.email, values.password).then(result => {
+            console.log(result)
+            navigate('/wardrobe')
+        })
     }
 
     function toggleShowPassword() {
