@@ -111,6 +111,8 @@ export default function WardrobePage() {
 
             <div className="flex flex-col gap-4">
                 <div className="flex justify-center items-center">
+                <Link to={'/trends'}><Button className="w-26 h-10 self-end mr-6">Tendencias</Button></Link>
+                <Link to={'/schedule'}><Button className="w-26 h-10 self-end mr-6">Calendario</Button></Link>
                 <Link to={'/oufits'}><Button className="w-26 h-10 self-end mr-6">Oufits</Button></Link>
                 <Dialog>
                     <DialogTrigger asChild>
