@@ -47,17 +47,33 @@ import  {
 
 
 // TODO: Change this to make the clotheItems array come from a get request to backend
-import clotheItems from '@/data/clotheItem.json'
+// import clotheItems from '@/data/clotheItem.json'
+
 import {Label} from "@radix-ui/react-label";
 import {Link} from "react-router-dom";
 import {Button} from "@/components/ui/button.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import  user from '../images/user.png'
 import React from "react"
 import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
+import {getClotheItems} from "@/services/clotheItemService.ts";
 
 export default function WardrobePage() {
+    const [clotheItems, setClotheItems] = useState([])
+    useEffect(() => {
+        const fetchClotheItems = async() => {
+            try {
+                const items = await getClotheItems();
+                setClotheItems(items);
+                console.log(clotheItems)
+            } catch (error) {
+                console.error('Error fetching clothe items:', error);
+            }
+        }
+        fetchClotheItems()
+    }, []);
+
     const clotheTypes = [
         'CAP',
         'EARRINGS',
@@ -68,8 +84,6 @@ export default function WardrobePage() {
         'PANTS',
         'SHOES'
     ]
-
-    console.table(clotheItems[0])
 
     const [activeClotheType, setActiveClotheType] =
         React.useState<string | undefined>(undefined);
