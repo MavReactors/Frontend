@@ -5,7 +5,7 @@ import {
     NavigationMenuList,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
     Carousel,
     CarouselContent,
@@ -13,9 +13,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardTitle} from "@/components/ui/card"
-import {Button} from "@/components/ui/button.tsx";
-import {Separator} from "@/components/ui/separator.tsx";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
 
 // SVG
 import onlineShopping from '../assets/undraw_online_shopping_re_k1sv.svg'
@@ -94,15 +94,15 @@ function WhizCarousel() {
                                 <div className="p-0">
                                     <Card>
                                         <CardContent className="flex aspect-square items-center justify-center p-6">
-                                            <img src={img} alt={'Outfit picture'} className={'rounded'}/>
+                                            <img src={img} alt={'Outfit picture'} className={'rounded'} />
                                         </CardContent>
                                     </Card>
                                 </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious/>
-                    <CarouselNext/>
+                    <CarouselPrevious />
+                    <CarouselNext />
                 </Carousel>
             </div>
         </>
@@ -121,7 +121,7 @@ function WhizWhy() {
                     sostenible.</p>
             </div>
             <div className="flex justify-center items-center">
-                <img src={spreadSheetSVG} alt={'Hello'} className={'max-w-xs md:max-w-xl rounded'}/>
+                <img src={spreadSheetSVG} alt={'Hello'} className={'max-w-xs md:max-w-xl rounded'} />
             </div>
         </div>
     )
@@ -151,7 +151,7 @@ function WhizFeatures() {
             <div className={'grid grid-cols-1 md:grid-cols-3 gap-8 pl-10 pr-10'}>
                 {features.map((feature, index) => (
                     <Card key={index} className={'w-[250px] p-3 min-h-10'}>
-                        <CardImage src={feature.image}/>
+                        <CardImage src={feature.image} />
                         <CardHeader>
                             <CardTitle>{`${feature.title}`}</CardTitle>
                             <CardDescription>Feature</CardDescription>
@@ -188,15 +188,15 @@ export function LandingPage() {
         <div className={'pl-5 pr-5'}>
             <WhizNavBar></WhizNavBar>
             <WhizHeader></WhizHeader>
-            <Separator className={'m-10'}/>
+            <Separator className={'m-10'} />
             <WhizCarousel></WhizCarousel>
-            <Separator className={'m-10'}/>
-            <WhizWhy/>
-            <Separator className={'m-10'}/>
-            <WhizFeatures/>
-            <Separator className={'m-10'}/>
+            <Separator className={'m-10'} />
+            <WhizWhy />
+            <Separator className={'m-10'} />
+            <WhizFeatures />
+            <Separator className={'m-10'} />
             <WhizFooter />
-            <Separator className={'m-10'}/>
+            <Separator className={'m-10'} />
         </div>
     )
 }
