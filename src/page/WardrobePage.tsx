@@ -58,9 +58,10 @@ import React from "react"
 import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 import {getClotheItems} from "@/services/clotheItemService.ts";
+import ClotheItemData from "@/models/ClotheItemData.ts";
 
 export default function WardrobePage() {
-    const [clotheItems, setClotheItems] = useState([])
+    const [clotheItems, setClotheItems] = useState<ClotheItemData[]>([])
     useEffect(() => {
         const fetchClotheItems = async() => {
             try {
@@ -218,19 +219,19 @@ export default function WardrobePage() {
                 <div className="grid grid-cols-[1fr_auto] gap-4 h-[80vh] p-6">
                     <div className="showcase grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                         {clotheItems
-                            .filter(item => item.tipo === activeClotheType)
+                            .filter(item => item.type === activeClotheType)
                             .map((item, index) => (
                             <Card key={index} className={'w-[250px] p-3'}>
-                                <CardImage src={item.foto} className=''></CardImage>
+                                <CardImage src={item.photo} className=''></CardImage>
                                 <CardHeader>
-                                    <CardTitle>{`${item.tipo}`}</CardTitle>
-                                    <CardDescription>{`Último Uso: ${item.ultimoUso}`}</CardDescription>
+                                    <CardTitle>{`${item.type}`}</CardTitle>
+                                    <CardDescription>{`Último Uso: ${item.lastWear}`}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
-                                    <p>{`Último Lavado: ${item.ultimoLavado}`}</p>
+                                    <p>{`Es favorito: ${item.isFavorite}`}</p>
                                 </CardContent>
                                 <CardFooter>
-                                    <p>{`Se Plancha: ${item.sePlancha ? 'Sí' : 'No'}`}</p>
+                                    <p>{`Se Plancha: ${item.isIroned ? 'Sí' : 'No'}`}</p>
                                 </CardFooter>
                             </Card>
                         ))
