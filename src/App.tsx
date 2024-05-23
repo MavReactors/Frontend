@@ -5,6 +5,8 @@ import WardrobePage from "@/page/WardrobePage.tsx";
 import { LandingPage } from "@/page/LandingPage.tsx";
 import { TrendsPage } from "@/page/TrendPage.tsx";
 import { SchedulePage } from "@/page/SchedulePage.tsx";
+import EditPorfile from "./page/EditPorfile";
+
 
 function App() {
     return (
@@ -16,6 +18,8 @@ function App() {
                 <Route path={'/wardrobe'} element={<WardrobePage />} />
                 <Route path={'/trends'} element={<TrendsPage />} />
                 <Route path={'/schedule'} element={<SchedulePage />} />
+                <Route path={'/editPorfile'} element={<EditPorfile/>}> </Route>
+
             </Routes>
         </BrowserRouter>
     )
