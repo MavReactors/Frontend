@@ -89,8 +89,12 @@ export default function WardrobePage() {
                                 <text className="grid gap-4 py-4 justify-center items-center">
                                     (aqui va el correo) 
                                 </text>
-                                <Button>Editar</Button>
-                                <Button>Cerrar la sesión</Button>
+                                <Link to={'/editPorfile'}>
+                                    <Button>Editar</Button>
+                                </Link>
+                                <Link to={'/signup'}>
+                                    <Button>Cerrar la sesión</Button>
+                                </Link>
                             </div> 
                         <SheetClose>
                             <div>
