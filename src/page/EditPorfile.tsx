@@ -50,7 +50,6 @@ export default function EditPor() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm({
         resolver: zodResolver(usernameSchema),
     });
@@ -58,7 +57,6 @@ export default function EditPor() {
     const {
         register: registerPassword,
         handleSubmit: handleSubmitPassword,
-        formState: { errors: passwordErrors },
     } = useForm({
         resolver: zodResolver(passwordSchema),
     });
@@ -153,6 +151,12 @@ export default function EditPor() {
                     </CardContent>
                 </Card>
             )}
+
+            {/* Mostrar las variables */}
+            <div className="mt-4">
+                <p>Nuevo nombre de usuario: {newUsername}</p>
+                <p>Nueva contraseña: {newPassword}</p>
+            </div> 
         </div>
         </>
     );
