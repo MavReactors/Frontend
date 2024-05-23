@@ -10,6 +10,9 @@ export default defineConfig({
       "data": path.resolve(__dirname, "./src/data"),
     },
   },
+  server: {
+    port: 3000,
+  },
   build: {
     outDir: path.resolve(__dirname, "./build"),
     assetsInlineLimit: 4096
