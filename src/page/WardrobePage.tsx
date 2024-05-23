@@ -47,17 +47,34 @@ import  {
 
 
 // TODO: Change this to make the clotheItems array come from a get request to backend
-import clotheItems from '@/data/clotheItem.json'
+// import clotheItems from '@/data/clotheItem.json'
+
 import {Label} from "@radix-ui/react-label";
 import {Link} from "react-router-dom";
 import {Button} from "@/components/ui/button.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import  user from '../images/user.png'
 import React from "react"
 import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
+import {getClotheItems} from "@/services/clotheItemService.ts";
+import ClotheItemData from "@/models/ClotheItemData.ts";
 
 export default function WardrobePage() {
+    const [clotheItems, setClotheItems] = useState<ClotheItemData[]>([])
+    useEffect(() => {
+        const fetchClotheItems = async() => {
+            try {
+                const items = await getClotheItems();
+                setClotheItems(items);
+                console.log(clotheItems)
+            } catch (error) {
+                console.error('Error fetching clothe items:', error);
+            }
+        }
+        fetchClotheItems()
+    }, []);
+
     const clotheTypes = [
         'CAP',
         'EARRINGS',
@@ -68,8 +85,6 @@ export default function WardrobePage() {
         'PANTS',
         'SHOES'
     ]
-
-    console.table(clotheItems[0])
 
     const [activeClotheType, setActiveClotheType] =
         React.useState<string | undefined>(undefined);
@@ -204,19 +219,19 @@ export default function WardrobePage() {
                 <div className="grid grid-cols-[1fr_auto] gap-4 h-[80vh] p-6">
                     <div className="showcase grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                         {clotheItems
-                            .filter(item => item.tipo === activeClotheType)
+                            .filter(item => item.type === activeClotheType)
                             .map((item, index) => (
                             <Card key={index} className={'w-[250px] p-3'}>
-                                <CardImage src={item.foto} className=''></CardImage>
+                                <CardImage src={item.photo} className=''></CardImage>
                                 <CardHeader>
-                                    <CardTitle>{`${item.tipo}`}</CardTitle>
-                                    <CardDescription>{`Último Uso: ${item.ultimoUso}`}</CardDescription>
+                                    <CardTitle>{`${item.type}`}</CardTitle>
+                                    <CardDescription>{`Último Uso: ${item.lastWear}`}</CardDescription>
                                 </CardHeader>
                                 <CardContent>
-                                    <p>{`Último Lavado: ${item.ultimoLavado}`}</p>
+                                    <p>{`Es favorito: ${item.isFavorite}`}</p>
                                 </CardContent>
                                 <CardFooter>
-                                    <p>{`Se Plancha: ${item.sePlancha ? 'Sí' : 'No'}`}</p>
+                                    <p>{`Se Plancha: ${item.isIroned ? 'Sí' : 'No'}`}</p>
                                 </CardFooter>
                             </Card>
                         ))
