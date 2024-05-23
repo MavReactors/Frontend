@@ -38,6 +38,7 @@ export function SignUpPage() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
+
     function onSubmit(values: FormSchemaType) {
         signUp({
             username: values.username,
